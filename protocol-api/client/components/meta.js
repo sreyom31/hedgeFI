@@ -1,12 +1,20 @@
 let Web3 = require('web3');
 
-const connectMeta = (setAddress, setWeb3) => {
+const connectMeta = (dispatch) => {
+
     window.ethereum ?
     ethereum.request({ method: "eth_requestAccounts" }).then((accounts) => {
-        setAddress(accounts[0])
-        let w3 = new Web3(ethereum)
-        setWeb3(w3)
-        console.log(w3)
+
+        let w3 = new Web3(ethereum);
+        console.log(dispatch)
+        dispatch(connectWallet({
+            address: accounts[0],
+            connected: true,
+            web3: w3
+        }))
+
+        console.log(accounts[0])
+
     }).catch((err) => console.log(err))
     : console.log("Please install MetaMask")
 }

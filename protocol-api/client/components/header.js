@@ -1,13 +1,18 @@
 import { useState } from "react"
 import { connectMeta } from "./meta"
 
+import { useDispatch, useSelector } from "react-redux";
+
+let Web3 = require('web3');
+
 const Header = () => {
 
-    const [web3, setWeb3] = useState(null)
-    const [address, setAddress] = useState(null)   
+    const dispatch = useDispatch();
+
+    const curState = useSelector(state => state.wallet);
 
     const connectAccount = () => {
-        connectMeta(setAddress, setWeb3)
+        connectMeta(dispatch);
     }
 
     return (
