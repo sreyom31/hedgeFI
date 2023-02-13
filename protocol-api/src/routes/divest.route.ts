@@ -6,15 +6,27 @@ const router = Router();
 
 router
   .route('/')
-  .post(validate(divestValidation.createDivest), divestController.createDivest)
-  .get(validate(divestValidation.getDivests), divestController.getDivests);
+  .post(
+    // validate(divestValidation.createDivest),
+    divestController.createDivest
+  )
+  .get(
+    // validate(divestValidation.getDivests),
+    divestController.getDivests
+  );
 
 router
   .route('/:divestId')
-  .get(validate(divestValidation.getDivest), divestController.getDivest)
-  .patch(validate(divestValidation.updateDivest), divestController.updateDivest)
+  .get(
+    // validate(divestValidation.getDivest),
+    divestController.getDivest
+  )
+  .patch(
+    // validate(divestValidation.updateDivest),
+    divestController.updateDivest
+  )
   .delete(
-    validate(divestValidation.deleteDivest),
+    // validate(divestValidation.deleteDivest),
     divestController.deleteDivest
   );
 

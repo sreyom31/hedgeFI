@@ -3,8 +3,13 @@ import { invest, investUpdate } from '../shared/customTypes';
 import InvestModel from '../models/invest/invest.model';
 import ApiError from '../utils/ApiError';
 
-const createInvest = async (invest: invest) => {
-  return InvestModel.create(invest);
+const createInvest = async (invest: any) => {
+  return InvestModel.create({
+    amount_c: parseInt(invest.args[0].hex),
+    amount_cx: parseInt(invest.args[1].hex),
+    amount_cy: parseInt(invest.args[2].hex),
+    amount_c_incentive: parseInt(invest.args[3].hex),
+  });
 };
 
 const queryInvests = async (filter: any, options: any) => {

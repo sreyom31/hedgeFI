@@ -3,8 +3,15 @@ import { Claim, ClaimUpdate } from '../shared/customTypes';
 import ClaimModel from '../models/claim/claim.model';
 import ApiError from '../utils/ApiError';
 
-const createClaim = async (claim: Claim) => {
-  return ClaimModel.create(claim);
+const createClaim = async (claim: any) => {
+  return ClaimModel.create({
+    claimant: claim.args[0],
+    amount_A: parseInt(claim.args[1].hex),
+    amount_B: parseInt(claim.args[2].hex),
+    amount_c: parseInt(claim.args[3].hex),
+    amount_cx: parseInt(claim.args[4].hex),
+    amount_cy: parseInt(claim.args[5].hex),
+  });
 };
 
 const queryClaims = async (filter: any, options: any) => {

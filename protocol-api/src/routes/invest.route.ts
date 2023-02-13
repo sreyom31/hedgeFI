@@ -6,13 +6,25 @@ const router = Router();
 
 router
   .route('/')
-  .post(validate(investValidation.createInvest), investController.createInvest)
-  .get(validate(investValidation.getInvests), investController.getInvests);
+  .post(
+    // validate(investValidation.createInvest),
+    investController.createInvest
+  )
+  .get(
+    // validate(investValidation.getInvests),
+    investController.getInvests
+  );
 
 router
   .route('/:investId')
-  .get(validate(investValidation.getInvest), investController.getInvest)
-  .patch(validate(investValidation.updateInvest), investController.updateInvest)
+  .get(
+    // validate(investValidation.getInvest),
+    investController.getInvest
+  )
+  .patch(
+    // validate(investValidation.updateInvest),
+    investController.updateInvest
+  )
   .delete(
     validate(investValidation.deleteInvest),
     investController.deleteInvest

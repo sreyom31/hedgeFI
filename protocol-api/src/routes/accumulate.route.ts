@@ -7,26 +7,26 @@ const router = Router();
 router
   .route('/')
   .post(
-    validate(accumulateValidation.createAccumulate),
+    // validate(accumulateValidation.createAccumulate),
     accumulateController.createAccumulate
   )
   .get(
-    validate(accumulateValidation.getAccumulates),
+    // validate(accumulateValidation.getAccumulates),
     accumulateController.getAccumulates
   );
 
 router
   .route('/:accumulateId')
   .get(
-    validate(accumulateValidation.getAccumulate),
+    // validate(accumulateValidation.getAccumulate),
     accumulateController.getAccumulate
   )
   .patch(
-    validate(accumulateValidation.updateAccumulate),
+    // validate(accumulateValidation.updateAccumulate),
     accumulateController.updateAccumulate
   )
   .delete(
-    validate(accumulateValidation.deleteAccumulate),
+    // validate(accumulateValidation.deleteAccumulate),
     accumulateController.deleteAccumulate
   );
 

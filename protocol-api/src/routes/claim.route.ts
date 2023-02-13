@@ -6,13 +6,29 @@ const router = Router();
 
 router
   .route('/')
-  .post(validate(claimValidation.createClaim), claimController.createClaim)
-  .get(validate(claimValidation.getClaims), claimController.getClaims);
+  .post(
+    // validate(claimValidation.createClaim),
+    claimController.createClaim
+  )
+  .get(
+    // validate(claimValidation.getClaims),
+
+    claimController.getClaims
+  );
 
 router
   .route('/:claimId')
-  .get(validate(claimValidation.getClaim), claimController.getClaim)
-  .patch(validate(claimValidation.updateClaim), claimController.updateClaim)
-  .delete(validate(claimValidation.deleteClaim), claimController.deleteClaim);
+  .get(
+    // validate(claimValidation.getClaim),
+    claimController.getClaim
+  )
+  .patch(
+    // validate(claimValidation.updateClaim),
+    claimController.updateClaim
+  )
+  .delete(
+    // validate(claimValidation.deleteClaim),
+    claimController.deleteClaim
+  );
 
 export default router;

@@ -3,8 +3,12 @@ import { Accumulate, AccumulateUpdate } from '../shared/customTypes';
 import AccumulateModel from '../models/accumulate/accumulate.model';
 import ApiError from '../utils/ApiError';
 
-const createAccumulate = async (accumulate: Accumulate) => {
-  return AccumulateModel.create(accumulate);
+const createAccumulate = async (accumulate: any) => {
+  return AccumulateModel.create({
+    splitter: accumulate.args[0],
+    amount_c: parseInt(accumulate.args[1].hex),
+    network: accumulate.args[2],
+  });
 };
 
 const queryAccumulates = async (filter: any, options: any) => {

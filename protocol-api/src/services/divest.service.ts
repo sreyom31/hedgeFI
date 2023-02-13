@@ -3,8 +3,13 @@ import { Divest, DivestUpdate } from '../shared/customTypes';
 import DivestModel from '../models/divest/divest.model';
 import ApiError from '../utils/ApiError';
 
-const createDivest = async (divest: Divest) => {
-  return DivestModel.create(divest);
+const createDivest = async (divest: any) => {
+  return DivestModel.create({
+    amount_c: parseInt(divest.args[0].hex),
+    amount_cx: parseInt(divest.args[1].hex),
+    amount_cy: parseInt(divest.args[2].hex),
+    amount_c_incentive: parseInt(divest.args[3].hex),
+  });
 };
 
 const queryDivests = async (filter: any, options: any) => {
