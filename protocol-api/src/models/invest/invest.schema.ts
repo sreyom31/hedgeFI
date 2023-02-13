@@ -27,6 +27,14 @@ const InvestSchema = new Schema({
     type: String,
     trim: true,
   },
+  dateOfEntry: {
+    type: Date,
+    default: new Date(),
+  },
+  lastUpdated: {
+    type: Date,
+    default: new Date(),
+  },
 });
 
 InvestSchema.plugin(toJSON);

@@ -1,11 +1,12 @@
 import { Document, Model } from 'mongoose';
 
 export interface IClaim {
+  addr: string;
+  amount_A: number;
+  amount_B: number;
   amount_c: number;
   amount_cx: number;
   amount_cy: number;
-  amount_c_incentive: number;
-  network: string;
   dateOfEntry: Date;
   lastUpdated: Date;
 }

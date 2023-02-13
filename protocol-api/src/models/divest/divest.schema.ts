@@ -27,6 +27,14 @@ const DivestSchema = new Schema({
     type: String,
     trim: true,
   },
+  dateOfEntry: {
+    type: Date,
+    default: new Date(),
+  },
+  lastUpdated: {
+    type: Date,
+    default: new Date(),
+  },
 });
 
 DivestSchema.plugin(toJSON);
