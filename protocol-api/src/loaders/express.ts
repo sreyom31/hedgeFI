@@ -35,7 +35,12 @@ export default ({ app }: { app: express.Application }) => {
   app.use(compression());
 
   // enable cors
-  app.use(cors());
+  const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200,
+    credentials: true,
+  };
+  app.use(cors(corsOptions));
 
   // limit repeated failed requests to auth endpoints
   if (config.env === 'production') {
