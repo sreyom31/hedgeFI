@@ -16,7 +16,6 @@ const insurance = loadContract();
 console.log(`apiEndPoint: ${apiEndPoint}`);
 const callAPI = async (endpoint, data, method) => {
   try {
-    console.log(`[callAPI] ${method} ${apiEndPoint + endpoint} ${data}`)
     await axios({
       method,
       url: apiEndPoint + endpoint,
