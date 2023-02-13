@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Layout from '../components/layout'
 import Landing from '@/components/landing/landing'
 import Intergration from '@/components/integration/integration'
+import About from '@/components/about/About'
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
 				<Layout>
 					<Landing />
 					<Intergration />
+					<About />
 				</Layout>
 			</main>
 		</>
