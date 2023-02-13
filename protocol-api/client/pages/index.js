@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 
+import Layout from '../components/layout'
+import Landing from '@/components/landing/landing'
 
 export default function Home() {
   return (
@@ -11,8 +13,10 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main className={"h-screen bg-black"}>
-				<p className={"text-4xl text-center text-red-500"}> Hello World </p>
+			<main>
+				<Layout>
+					<Landing />
+				</Layout>
 			</main>
 		</>
   )
