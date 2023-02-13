@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 import Layout from '../components/layout'
 import Landing from '@/components/landing/landing'
+import Intergration from '@/components/integration/integration'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
 			<main>
 				<Layout>
 					<Landing />
+					<Intergration />
 				</Layout>
 			</main>
 		</>
