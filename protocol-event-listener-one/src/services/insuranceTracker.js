@@ -3,10 +3,9 @@ const axios = require('axios');
 const TrackerState = require('../models/tracker_state');
 const EventDeadLetterQueue = require('../models/event_deadletter_queue');
 const InsuranceAbi = require('../abi/Insurance.json');
-INFURA_API = process.env.INFURA_API;
+ALCHEMY_API = process.env.ALCHEMY_API;
 const provider = new ethers.providers.JsonRpcProvider(INFURA_API);
 const apiEndPoint = process.env.API_ENDPOINT;
-const PASSWORD = process.env.PASSWORD;
 const loadContract = () => {
   let abi = InsuranceAbi;
   let address = process.env.CONTRACT_ADDRESS;
