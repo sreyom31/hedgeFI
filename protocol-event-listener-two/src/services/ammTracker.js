@@ -3,8 +3,8 @@ const axios = require('axios');
 const TrackerState = require('../models/tracker_state');
 const EventDeadLetterQueue = require('../models/event_deadletter_queue');
 const InsuranceAbi = require('../abi/Insurance.json');
-ALCHEMY_API = process.env.ALCHEMY_API;
-const provider = new ethers.providers.JsonRpcProvider(ALCHEMY_API);
+INFURA_API = process.env.INFURA_API;
+const provider = new ethers.providers.JsonRpcProvider(INFURA_API);
 const apiEndPoint = process.env.API_ENDPOINT;
 const loadContract = () => {
   let abi = InsuranceAbi;
@@ -38,43 +38,34 @@ const processTokenEvents = async (startFromBlock) => {
   const currentBlock = await provider.getBlockNumber();
   let lastBlockProcessed = startFromBlock;
   console.info(`Tracking block: ${startFromBlock} - ${currentBlock}`);
-  const handleCreateAccumulate = async (event) => {
-    return callAPI('accumulate', event, 'post');
+  const handleCreateLiquidity = async (event) => {
+    return callAPI('liquidity', event, 'post');
   };
-  const handleCreateInvest = async (event) => {
-    return callAPI('invest', event, 'post');
+  const handleDeleteLiquidity = async (event) => {
+    return callAPI('liquidity', event, 'delete');
   };
-  const handleCreateDivest = async (event) => {
-    return callAPI('divest', event, 'post');
-  };
-  const handleCreateClaim = async (event) => {
-    return callAPI('claim', event, 'post');
+  const handleExecuteSwap = async (event) => {
+    return callAPI('swap', event, 'post');
   };
   async function handleEvents(events) {
     for (const event of events) {
-      if (event.event === 'RiskSplit') {
+      if (event.event === 'LiquidityAdded') {
         console.log(
-          `[Accumulate_Created] tx: ${event.transactionHash}, block: ${event.blockNumber}`
+          `[Liquidity_Added] tx: ${event.transactionHash}, block: ${event.blockNumber}`
         );
-        await handleCreateAccumulate(event);
+        await handleCreateLiquidity(event);
       }
-      if (event.event === 'Invest') {
+      if (event.event === 'LiquidityRemoved') {
         console.log(
-          `[Invest_Created] tx: ${event.transactionHash}, block: ${event.blockNumber}`
+          `[Liquidity_Removed] tx: ${event.transactionHash}, block: ${event.blockNumber}`
         );
-        await handleCreateInvest(event);
+        await handleDeleteLiquidity(event);
       }
-      if (event.event === 'Divest') {
+      if (event.event === 'SwapExecuted') {
         console.log(
-          `[Invest_Created] tx: ${event.transactionHash}, block: ${event.blockNumber}`
+          `[Swap_Executed] tx: ${event.transactionHash}, block: ${event.blockNumber}`
         );
-        await handleCreateDivest(event);
-      }
-      if (event.event === 'Claim') {
-        console.log(
-          `[Claim_Created] tx: ${event.transactionHash}, block: ${event.blockNumber}`
-        );
-        await handleCreateClaim(event);
+        await handleExecuteSwap(event);
       }
       lastBlockProcessed = event.blockNumber + 1;
     }
