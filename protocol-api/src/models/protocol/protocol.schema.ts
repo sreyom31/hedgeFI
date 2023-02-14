@@ -1,8 +1,8 @@
 import { Schema } from 'mongoose';
-import { setLastUpdated } from './invest.methods';
+import { setLastUpdated } from './protocol.methods';
 import { toJSON, paginate } from '../plugins';
 
-const InvestSchema = new Schema({
+const ProtocolSchema = new Schema({
   amount_c: {
     type: Number,
     required: true,
@@ -37,8 +37,8 @@ const InvestSchema = new Schema({
   },
 });
 
-InvestSchema.plugin(toJSON);
-InvestSchema.plugin(paginate);
-InvestSchema.methods.setLastUpdated = setLastUpdated;
+ProtocolSchema.plugin(toJSON);
+ProtocolSchema.plugin(paginate);
+ProtocolSchema.methods.setLastUpdated = setLastUpdated;
 
-export default InvestSchema;
+export default ProtocolSchema;

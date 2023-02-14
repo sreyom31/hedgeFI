@@ -1,6 +1,5 @@
 import accumulateService from './accumulate.service';
-import investService from './invest.service';
-import divestService from './divest.service';
+import protocolService from './protocol.service';
 import claimService from './claim.service';
 
-export { accumulateService, investService, divestService, claimService };
+export { accumulateService, protocolService, claimService };

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import accumulateRoute from './accumulate.route';
 import claimRoute from './claim.route';
-import investRoute from './invest.route';
+import investRoute from './protocol.route';
 import divestRoute from './divest.route';
 
 const router = Router();

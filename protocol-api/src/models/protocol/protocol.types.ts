@@ -1,6 +1,6 @@
 import { Document, Model } from 'mongoose';
 
-export interface IDivest {
+export interface IProtocol {
   amount_c: number;
   amount_cx: number;
   amount_cy: number;
@@ -10,11 +10,11 @@ export interface IDivest {
   lastUpdated: Date;
 }
 
-export interface IDivestDocument extends IDivest, Document {
-  setLastUpdated: (this: IDivestDocument) => Promise<void>;
+export interface IProtocolDocument extends IProtocol, Document {
+  setLastUpdated: (this: IProtocolDocument) => Promise<void>;
 }
 
-export interface IDivestModel extends Model<IDivestDocument> {
+export interface IProtocolModel extends Model<IProtocolDocument> {
   paginate: (
     filter: any,
     options: any

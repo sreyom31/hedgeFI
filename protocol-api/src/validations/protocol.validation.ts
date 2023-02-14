@@ -1,7 +1,7 @@
 import z from 'zod';
 import { Types } from 'mongoose';
 
-const createDivest = z.object({
+const createProtocol = z.object({
   body: z.object({
     amount_c: z.number(),
     amount_cx: z.number(),
@@ -11,7 +11,7 @@ const createDivest = z.object({
   }),
 });
 
-const getDivests = z.object({
+const getProtocols = z.object({
   query: z
     .object({
       amount_c: z.number(),
@@ -26,20 +26,20 @@ const getDivests = z.object({
     .partial(),
 });
 
-const getDivest = z.object({
+const getProtocol = z.object({
   params: z.object({
-    divestId: z.string().refine((id) => Types.ObjectId.isValid(id), {
-      message: 'Invalid divest id',
-      path: ['Divest Query'],
+    protocolId: z.string().refine((id) => Types.ObjectId.isValid(id), {
+      message: 'Invalid protocol id',
+      path: ['Protocol Query'],
     }),
   }),
 });
 
-const updateDivest = z.object({
+const updateProtocol = z.object({
   params: z.object({
-    divestId: z.string().refine((id) => Types.ObjectId.isValid(id), {
-      message: 'Invalid divest id',
-      path: ['Divest Update'],
+    protocolId: z.string().refine((id) => Types.ObjectId.isValid(id), {
+      message: 'Invalid protocol id',
+      path: ['Protocol Update'],
     }),
   }),
   body: z
@@ -53,23 +53,23 @@ const updateDivest = z.object({
     .partial()
     .refine((body) => Object.keys(body).length > 0, {
       message: 'Need atleast one field to update',
-      path: ['Divest Update'],
+      path: ['Protocol Update'],
     }),
 });
 
-const deleteDivest = z.object({
+const deleteProtocol = z.object({
   params: z.object({
-    divestId: z.string().refine((id) => Types.ObjectId.isValid(id), {
-      message: 'Invalid divest id',
-      path: ['Divest Delete'],
+    protocolId: z.string().refine((id) => Types.ObjectId.isValid(id), {
+      message: 'Invalid protocol id',
+      path: ['Protocol Delete'],
     }),
   }),
 });
 
 export default {
-  createDivest,
-  getDivests,
-  getDivest,
-  updateDivest,
-  deleteDivest,
+  createProtocol,
+  getProtocols,
+  getProtocol,
+  updateProtocol,
+  deleteProtocol,
 };

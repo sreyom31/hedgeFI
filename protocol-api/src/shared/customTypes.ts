@@ -10,7 +10,7 @@ export type AccumulateUpdate = {
   network?: string;
 };
 
-export type Invest = {
+export type Protocol = {
   amount_c: number;
   amount_cx: number;
   amount_cy: number;
@@ -18,23 +18,7 @@ export type Invest = {
   network: string;
 };
 
-export type InvestUpdate = {
-  amount_c?: number;
-  amount_cx?: number;
-  amount_cy?: number;
-  amount_c_incentive?: number;
-  network?: string;
-};
-
-export type Divest = {
-  amount_c: number;
-  amount_cx: number;
-  amount_cy: number;
-  amount_c_incentive: number;
-  network: string;
-};
-
-export type DivestUpdate = {
+export type ProtocolUpdate = {
   amount_c?: number;
   amount_cx?: number;
   amount_cy?: number;
