@@ -26,7 +26,7 @@ router
     protocolController.updateProtocol
   )
   .delete(
-    validate(protocolValidation.deleteProtocol),
+    // validate(protocolValidation.deleteProtocol),
     protocolController.deleteProtocol
   );
 

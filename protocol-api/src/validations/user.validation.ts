@@ -1,9 +1,9 @@
 import z from 'zod';
 import { Types } from 'mongoose';
 
-const createClaim = z.object({
+const createUser = z.object({
   body: z.object({
-    claimant: z.string().trim(),
+    addr: z.string().trim(),
     amount_A: z.number(),
     amount_B: z.number(),
     amount_c: z.number(),
@@ -12,10 +12,10 @@ const createClaim = z.object({
   }),
 });
 
-const getClaims = z.object({
+const getUsers = z.object({
   query: z
     .object({
-      claimant: z.string().trim(),
+      addr: z.string().trim(),
       amount_A: z.number(),
       amount_B: z.number(),
       amount_c: z.number(),
@@ -28,7 +28,7 @@ const getClaims = z.object({
     .partial(),
 });
 
-const getClaim = z.object({
+const getUser = z.object({
   params: z.object({
     investId: z.string().refine((id) => Types.ObjectId.isValid(id), {
       message: 'Invalid invest id',
@@ -37,16 +37,16 @@ const getClaim = z.object({
   }),
 });
 
-const updateClaim = z.object({
+const updateUser = z.object({
   params: z.object({
-    claimId: z.string().refine((id) => Types.ObjectId.isValid(id), {
-      message: 'Invalid claim id',
-      path: ['Claim Update'],
+    userId: z.string().refine((id) => Types.ObjectId.isValid(id), {
+      message: 'Invalid user id',
+      path: ['User Update'],
     }),
   }),
   body: z
     .object({
-      claimant: z.string().trim(),
+      addr: z.string().trim(),
       amount_A: z.number(),
       amount_B: z.number(),
       amount_c: z.number(),
@@ -56,17 +56,17 @@ const updateClaim = z.object({
     .partial()
     .refine((body) => Object.keys(body).length > 0, {
       message: 'Need atleast one field to update',
-      path: ['Claim Update'],
+      path: ['User Update'],
     }),
 });
 
-const deleteClaim = z.object({
+const deleteUser = z.object({
   params: z.object({
-    claimId: z.string().refine((id) => Types.ObjectId.isValid(id), {
-      message: 'Invalid claim id',
-      path: ['Claim Delete'],
+    userId: z.string().refine((id) => Types.ObjectId.isValid(id), {
+      message: 'Invalid user id',
+      path: ['User Delete'],
     }),
   }),
 });
 
-export default { createClaim, getClaims, getClaim, updateClaim, deleteClaim };
+export default { createUser, getUsers, getUser, updateUser, deleteUser };

@@ -1,15 +1,3 @@
-export type Accumulate = {
-  splitter: string;
-  amount_c: number;
-  network: string;
-};
-
-export type AccumulateUpdate = {
-  splitter?: string;
-  amount_c?: number;
-  network?: string;
-};
-
 export type Protocol = {
   amount_c: number;
   amount_cx: number;
@@ -26,7 +14,7 @@ export type ProtocolUpdate = {
   network?: string;
 };
 
-export type Claim = {
+export type User = {
   addr: string;
   amount_A: number;
   amount_B: number;
@@ -36,7 +24,7 @@ export type Claim = {
   network: string;
 };
 
-export type ClaimUpdate = {
+export type UserUpdate = {
   addr?: string;
   amount_A?: number;
   amount_B?: number;

@@ -1,5 +1,4 @@
-import accumulateService from './accumulate.service';
 import protocolService from './protocol.service';
-import claimService from './claim.service';
+import userService from './user.service';
 
-export { accumulateService, protocolService, claimService };
+export { userService, protocolService };

@@ -1,9 +1,9 @@
 import { Schema } from 'mongoose';
-import { setLastUpdated } from './claim.methods';
+import { setLastUpdated } from './user.methods';
 import { toJSON, paginate } from '../plugins';
 
-const ClaimSchema = new Schema({
-  claimant: {
+const UserSchema = new Schema({
+  addr: {
     type: String,
     required: true,
     trim: true,
@@ -47,8 +47,8 @@ const ClaimSchema = new Schema({
   },
 });
 
-ClaimSchema.plugin(toJSON);
-ClaimSchema.plugin(paginate);
-ClaimSchema.methods.setLastUpdated = setLastUpdated;
+UserSchema.plugin(toJSON);
+UserSchema.plugin(paginate);
+UserSchema.methods.setLastUpdated = setLastUpdated;
 
-export default ClaimSchema;
+export default UserSchema;

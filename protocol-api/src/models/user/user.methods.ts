@@ -1,6 +1,6 @@
-import { IClaimDocument } from './claim.types';
+import { IUserDocument } from './user.types';
 
-export async function setLastUpdated(this: IClaimDocument): Promise<void> {
+export async function setLastUpdated(this: IUserDocument): Promise<void> {
   const now = new Date();
   if (!this.lastUpdated || this.lastUpdated < now) {
     this.lastUpdated = now;

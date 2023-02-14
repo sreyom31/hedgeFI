@@ -1,16 +1,12 @@
 import { Router } from 'express';
-import accumulateRoute from './accumulate.route';
-import claimRoute from './claim.route';
-import investRoute from './protocol.route';
-import divestRoute from './divest.route';
+import userRoute from './user.route';
+import protocolRoute from './protocol.route';
 
 const router = Router();
 
 const defaultRoutes = [
-  { path: '/accumulate', route: accumulateRoute },
-  { path: '/claim', route: claimRoute },
-  { path: '/invest', route: investRoute },
-  { path: '/divest', route: divestRoute },
+  { path: '/user', route: userRoute },
+  { path: '/protocol', route: protocolRoute },
 ];
 
 defaultRoutes.forEach((route) => {

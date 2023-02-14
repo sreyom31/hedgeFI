@@ -1,6 +1,6 @@
 import { Document, Model } from 'mongoose';
 
-export interface IClaim {
+export interface IUser {
   addr: string;
   amount_A: number;
   amount_B: number;
@@ -11,11 +11,11 @@ export interface IClaim {
   lastUpdated: Date;
 }
 
-export interface IClaimDocument extends IClaim, Document {
-  setLastUpdated: (this: IClaimDocument) => Promise<void>;
+export interface IUserDocument extends IUser, Document {
+  setLastUpdated: (this: IUserDocument) => Promise<void>;
 }
 
-export interface IClaimModel extends Model<IClaimDocument> {
+export interface IUserModel extends Model<IUserDocument> {
   paginate: (
     filter: any,
     options: any
