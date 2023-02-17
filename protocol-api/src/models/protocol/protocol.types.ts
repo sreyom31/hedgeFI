@@ -6,6 +6,7 @@ export interface IProtocol {
   amount_cy: number;
   amount_c_incentive: number;
   network: string;
+  isDivest: boolean;
   dateOfEntry: Date;
   lastUpdated: Date;
 }

@@ -4,6 +4,7 @@ export type Protocol = {
   amount_cy: number;
   amount_c_incentive: number;
   network: string;
+  isDivest: boolean;
 };
 
 export type ProtocolUpdate = {
@@ -12,6 +13,7 @@ export type ProtocolUpdate = {
   amount_cy?: number;
   amount_c_incentive?: number;
   network?: string;
+  isDivest?: boolean;
 };
 
 export type User = {

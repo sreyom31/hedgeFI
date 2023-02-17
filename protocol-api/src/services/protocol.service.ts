@@ -12,6 +12,19 @@ const createProtocol = async (protocol: any) => {
   });
 };
 
+const patchProtocol = async (protocol: any) => {
+  const prot = await ProtocolModel.find({});
+  Object.assign(prot, {
+    amount_c: parseInt(protocol.args[0].hex),
+    amount_cx: parseInt(protocol.args[1].hex),
+    amount_cy: parseInt(protocol.args[2].hex),
+    amount_c_incentive: parseInt(protocol.args[3].hex),
+    isDivest: true,
+  });
+  await protocol.save();
+  return protocol;
+};
+
 const queryProtocols = async (filter: any, options: any) => {
   const protocols = await ProtocolModel.paginate(filter, options);
   return protocols;
@@ -42,6 +55,7 @@ const deleteProtocolById = async (id: string) => {
 
 export default {
   createProtocol,
+  patchProtocol,
   queryProtocols,
   getProtocolById,
   updateProtocolById,

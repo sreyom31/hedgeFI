@@ -27,6 +27,10 @@ const ProtocolSchema = new Schema({
     type: String,
     trim: true,
   },
+  isDivest: {
+    type: Boolean,
+    default: false,
+  },
   dateOfEntry: {
     type: Date,
     default: new Date(),

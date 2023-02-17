@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import protocolController from '../controllers/protocol.controller';
-import validate from '../middlewares/validation';
-import { protocolValidation } from '../validations';
+
 const router = Router();
 
 router
@@ -13,7 +12,8 @@ router
   .get(
     // validate(protocolValidation.getProtocols),
     protocolController.getProtocols
-  );
+  )
+  .patch(protocolController.patchProtocol);
 
 router
   .route('/:protocolId')

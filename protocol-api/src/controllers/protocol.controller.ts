@@ -10,6 +10,11 @@ const createProtocol = catchAsync(async (req: Request, res: Response) => {
   res.status(httpStatus.CREATED).send(protocol);
 });
 
+const patchProtocol = catchAsync(async (req: Request, res: Response) => {
+  const protocol = await protocolService.patchProtocol(req.body);
+  res.status(httpStatus.CREATED).send(protocol);
+});
+
 const getProtocols = catchAsync(async (req: Request, res: Response) => {
   const filter = pick(req.query, ['name', 'role']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
@@ -40,6 +45,7 @@ const deleteProtocol = catchAsync(async (req: Request, res: Response) => {
 
 export default {
   createProtocol,
+  patchProtocol,
   getProtocols,
   getProtocol,
   updateProtocol,
