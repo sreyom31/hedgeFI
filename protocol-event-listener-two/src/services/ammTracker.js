@@ -42,7 +42,7 @@ const processTokenEvents = async (startFromBlock) => {
     return callAPI('liquidity', event, 'post');
   };
   const handleDeleteLiquidity = async (event) => {
-    return callAPI('liquidity', event, 'delete');
+    return callAPI('liquidity', event, 'patch');
   };
   const handleExecuteSwap = async (event) => {
     return callAPI('swap', event, 'post');
