@@ -1,5 +1,5 @@
 import httpStatus from 'http-status';
-import { User, UserUpdate } from '../shared/customTypes';
+import { UserUpdate } from '../shared/customTypes';
 import UserModel from '../models/user/user.model';
 import ApiError from '../utils/ApiError';
 

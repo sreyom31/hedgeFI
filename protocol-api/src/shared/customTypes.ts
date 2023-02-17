@@ -35,3 +35,17 @@ export type UserUpdate = {
   amount_cy?: number;
   network?: string;
 };
+
+export type Liquidity = {
+  addr: string;
+  amount_A: number;
+  amount_B: number;
+  isRemoved: boolean;
+};
+
+export type LiquidityUpdate = {
+  addr?: string;
+  amount_A?: number;
+  amount_B?: number;
+  isRemoved?: boolean;
+};

@@ -1,5 +1,5 @@
 import httpStatus from 'http-status';
-import { protocol, protocolUpdate } from '../shared/customTypes';
+import { ProtocolUpdate } from '../shared/customTypes';
 import ProtocolModel from '../models/protocol/protocol.model';
 import ApiError from '../utils/ApiError';
 
@@ -34,7 +34,7 @@ const getProtocolById = async (id: string) => {
   ProtocolModel.findById(id);
 };
 
-const updateProtocolById = async (id: string, updateBody: protocolUpdate) => {
+const updateProtocolById = async (id: string, updateBody: ProtocolUpdate) => {
   const protocol = await getProtocolById(id);
   if (!protocol) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Protocol not found');
