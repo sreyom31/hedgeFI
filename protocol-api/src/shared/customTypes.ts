@@ -49,3 +49,19 @@ export type LiquidityUpdate = {
   amount_B?: number;
   isRemoved?: boolean;
 };
+
+export type Swap = {
+  addr: string;
+  amount_A_In: number;
+  amount_A_Out: number;
+  amount_B_In: number;
+  amount_B_Out: number;
+};
+
+export type SwapUpdate = {
+  addr?: string;
+  amount_A_In?: number;
+  amount_A_Out?: number;
+  amount_B_In?: number;
+  amount_B_Out?: number;
+};
