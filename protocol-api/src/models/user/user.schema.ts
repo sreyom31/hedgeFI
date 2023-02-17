@@ -25,12 +25,12 @@ const UserSchema = new Schema({
   },
   amount_cx: {
     type: Number,
-    required: true,
+    default: 0,
     trim: true,
   },
   amount_cy: {
     type: Number,
-    required: true,
+    default: 0,
     trim: true,
   },
   network: {

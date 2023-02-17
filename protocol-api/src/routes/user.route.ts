@@ -1,34 +1,34 @@
 import { Router } from 'express';
-import claimController from '../controllers/claim.controller';
-import validate from '../middlewares/validation';
-import { claimValidation } from '../validations';
+import userController from '../controllers/user.controller';
+
 const router = Router();
 
 router
   .route('/')
   .post(
-    // validate(claimValidation.createClaim),
-    claimController.createClaim
+    // validate(userValidation.createUser),
+    userController.createUser
   )
   .get(
-    // validate(claimValidation.getClaims),
+    // validate(userValidation.getUsers),
 
-    claimController.getClaims
-  );
+    userController.getUsers
+  )
+  .patch(userController.patchUser);
 
 router
-  .route('/:claimId')
+  .route('/:userId')
   .get(
-    // validate(claimValidation.getClaim),
-    claimController.getClaim
+    // validate(userValidation.getUser),
+    userController.getUser
   )
   .patch(
-    // validate(claimValidation.updateClaim),
-    claimController.updateClaim
+    // validate(userValidation.updateUser),
+    userController.updateUser
   )
   .delete(
-    // validate(claimValidation.deleteClaim),
-    claimController.deleteClaim
+    // validate(userValidation.deleteUser),
+    userController.deleteUser
   );
 
 export default router;
