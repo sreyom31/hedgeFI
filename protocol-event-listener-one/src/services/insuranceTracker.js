@@ -39,16 +39,16 @@ const processTokenEvents = async (startFromBlock) => {
   let lastBlockProcessed = startFromBlock;
   console.info(`Tracking block: ${startFromBlock} - ${currentBlock}`);
   const handleCreateAccumulate = async (event) => {
-    return callAPI('accumulate', event, 'post');
+    return callAPI('user', event, 'post');
   };
   const handleCreateInvest = async (event) => {
-    return callAPI('invest', event, 'post');
+    return callAPI('protocol', event, 'post');
   };
   const handleCreateDivest = async (event) => {
-    return callAPI('divest', event, 'post');
+    return callAPI('protocol', event, 'patch');
   };
   const handleCreateClaim = async (event) => {
-    return callAPI('claim', event, 'post');
+    return callAPI('user', event, 'patch');
   };
   async function handleEvents(events) {
     for (const event of events) {

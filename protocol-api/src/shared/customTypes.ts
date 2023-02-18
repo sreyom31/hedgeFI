@@ -1,48 +1,22 @@
-export type Accumulate = {
-  splitter: string;
-  amount_c: number;
-  network: string;
-};
-
-export type AccumulateUpdate = {
-  splitter?: string;
-  amount_c?: number;
-  network?: string;
-};
-
-export type Invest = {
+export type Protocol = {
   amount_c: number;
   amount_cx: number;
   amount_cy: number;
   amount_c_incentive: number;
   network: string;
+  isDivest: boolean;
 };
 
-export type InvestUpdate = {
+export type ProtocolUpdate = {
   amount_c?: number;
   amount_cx?: number;
   amount_cy?: number;
   amount_c_incentive?: number;
   network?: string;
+  isDivest?: boolean;
 };
 
-export type Divest = {
-  amount_c: number;
-  amount_cx: number;
-  amount_cy: number;
-  amount_c_incentive: number;
-  network: string;
-};
-
-export type DivestUpdate = {
-  amount_c?: number;
-  amount_cx?: number;
-  amount_cy?: number;
-  amount_c_incentive?: number;
-  network?: string;
-};
-
-export type Claim = {
+export type User = {
   addr: string;
   amount_A: number;
   amount_B: number;
@@ -52,7 +26,7 @@ export type Claim = {
   network: string;
 };
 
-export type ClaimUpdate = {
+export type UserUpdate = {
   addr?: string;
   amount_A?: number;
   amount_B?: number;
@@ -60,4 +34,34 @@ export type ClaimUpdate = {
   amount_cx?: number;
   amount_cy?: number;
   network?: string;
+};
+
+export type Liquidity = {
+  addr: string;
+  amount_A: number;
+  amount_B: number;
+  isRemoved: boolean;
+};
+
+export type LiquidityUpdate = {
+  addr?: string;
+  amount_A?: number;
+  amount_B?: number;
+  isRemoved?: boolean;
+};
+
+export type Swap = {
+  addr: string;
+  amount_A_In: number;
+  amount_A_Out: number;
+  amount_B_In: number;
+  amount_B_Out: number;
+};
+
+export type SwapUpdate = {
+  addr?: string;
+  amount_A_In?: number;
+  amount_A_Out?: number;
+  amount_B_In?: number;
+  amount_B_Out?: number;
 };

@@ -1,6 +1,6 @@
-import accumulateService from './accumulate.service';
-import investService from './invest.service';
-import divestService from './divest.service';
-import claimService from './claim.service';
+import protocolService from './protocol.service';
+import userService from './user.service';
+import liquidityService from './liquidity.service';
+import swapService from './swap.service';
 
-export { accumulateService, investService, divestService, claimService };
+export { userService, protocolService, liquidityService, swapService };
