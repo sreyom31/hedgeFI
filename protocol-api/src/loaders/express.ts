@@ -35,12 +35,14 @@ export default ({ app }: { app: express.Application }) => {
   app.use(compression());
 
   // enable cors
-  app.use(cors());
+  const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200,
+    credentials: true,
+  };
+  app.use(cors(corsOptions));
 
   // limit repeated failed requests to auth endpoints
-  if (config.env === 'production') {
-    app.use('/auth', authLimiter);
-  }
   app.use('/', routes);
 
   // send back a 404 error for any unknown api request
