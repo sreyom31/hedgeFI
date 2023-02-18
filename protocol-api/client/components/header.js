@@ -17,7 +17,8 @@ const Header = () => {
 
     return (
         <header className="w-full fixed top-0 left-1/2 py-4 flex text-white
-        justify-around items-center -translate-x-1/2 bg-white bg-opacity-10 backdrop-blur-sm">
+        justify-around items-center -translate-x-1/2 bg-white bg-opacity-10 backdrop-blur-sm
+        z-50">
             <div className="text-3xl">
                 Logo
             </div>
