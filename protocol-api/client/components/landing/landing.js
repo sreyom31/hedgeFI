@@ -3,7 +3,7 @@ import { connectMeta } from "../meta"
 import Image from "next/image"
 import Content from "./content"
 
-import myImage from "../../public/me.jpeg"
+import myImage from "../../public/me.png"
 
 const Landing = () => {
 
@@ -14,7 +14,7 @@ const Landing = () => {
             <div className="container h-full mx-auto grid grid-cols-2">
                 <Content />
                 <div className="flex items-center justify-center">
-                    <div className="h-[500px] w-[500px] overflow-hidden rounded-full">
+                    <div className="overflow-hidden rounded-full">
                         <Image src={myImage} alt="Picture of the author"/>
                     </div>
                 </div>

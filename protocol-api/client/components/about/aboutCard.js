@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import myImage from '../../public/me.jpeg'
+import myImage from '../../public/me2.png'
 
 const AboutCard = ({title, details}) => {
     return (
